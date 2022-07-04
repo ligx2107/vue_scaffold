@@ -3,7 +3,7 @@
     <div class="todo-wrap">
       <Header :addTodo="addTodo"/>
       <List :todos="todos" :updateTodo="updateTodo" :deleteTodo="deleteTodo"/>
-      <Footer />
+      <Footer :todos="todos" :updateAll="updateAll" :clearAllDone="clearAllDone"/>
     </div>
   </div>
 </template>
@@ -35,12 +35,23 @@
             // 定义todo更新方法
             updateTodo(index, checked){
                 this.todos[index].done = checked;
-                console.log(this.todos);
             },
 
             // 定义删除todo方法
             deleteTodo(index){
                 this.todos.splice(index, 1);
+            },
+
+            // 更新全部todo
+            updateAll(done){
+                this.todos.forEach(todo => todo.done = done);
+            },
+
+            // 删除所有已完成todo
+            clearAllDone(){
+                this.todos = this.todos.filter(todo => {
+                    return !todo.done;
+                });
             }
         }
     }
