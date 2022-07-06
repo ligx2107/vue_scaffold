@@ -18,12 +18,23 @@
             Header,List, Footer
         },
         data(){
-            return {
-                todos:[
+            let todos = [
                     {id:1, title:'抽烟',done:false},
                     {id:2, title:'喝酒',done:true},
                     {id:3, title:'汤头',done:false}
                 ]
+            try{
+                // 解析localStorage中缓存的数据
+                todos = JSON.parse(localStorage.getItem('todos')) || todos
+            }catch(e){
+                // 解析失败
+                alert(e.message);
+                // 解析失败，删除localStorage中缓存数据
+                localStorage.removeItem('todos');
+                todos = todos;
+            }
+            return {
+                todos
             }
         },
         methods:{
@@ -52,6 +63,18 @@
                 this.todos = this.todos.filter(todo => {
                     return !todo.done;
                 });
+            }
+        },
+        mounted(){
+            // 组件挂载后，localStorage中缓存数据
+            localStorage.setItem('todos', JSON.stringify(this.todos));
+        },
+        watch:{
+            todos:{
+                deep: true, // 开启多级结构属性监听，watch默认情况下实现浅层次监听
+                handler(value){
+                    localStorage.setItem('todos', JSON.stringify(value));
+                }
             }
         }
     }
