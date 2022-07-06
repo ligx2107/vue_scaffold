@@ -11,7 +11,6 @@
 <script>
     export default {
         name: "Header",
-        props:['addTodo'],
         data(){
             return {
                 todoName: ''
@@ -19,8 +18,8 @@
         },
         methods:{
             add(){
-                // 调用父组件传递方法，增加todo事项
-                this.addTodo({id:Date.now(), title: this.todoName, done: false});
+                // 触发父组件定义事件，增加todo事项
+                this.$emit('addTodo', {id:Date.now(), title: this.todoName, done: false});
 
                 // 清空输入框中内容
                 this.todoName = ''

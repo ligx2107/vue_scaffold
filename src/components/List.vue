@@ -1,6 +1,6 @@
 <template>
     <ul class="todo-main">
-        <Item v-for="(t, index) in todos" :key="t.id" :todo="t" :index="index" :updateTodo="updateTodo" :deleteTodo="deleteTodo"/>
+        <Item v-for="(t, index) in todos" :key="t.id" :todo="t" :index="index" @updateTodo="updateTodo" @deleteTodo="deleteTodo"/>
     </ul>
 </template>
 
@@ -9,7 +9,15 @@
     export default {
         name: 'List',
         components:{Item},
-        props:['todos', 'updateTodo', 'deleteTodo']
+        props:['todos'],
+        methods:{
+            deleteTodo(index){
+                this.$emit('deleteTodo', index);
+            },
+            updateTodo(index, checked){
+                this.$emit('updateTodo', index, checked);
+            }
+        }
     }
 </script>
 

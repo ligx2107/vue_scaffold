@@ -1,9 +1,9 @@
 <template>
   <div class="todo-container">
     <div class="todo-wrap">
-      <Header :addTodo="addTodo"/>
-      <List :todos="todos" :updateTodo="updateTodo" :deleteTodo="deleteTodo"/>
-      <Footer :todos="todos" :updateAll="updateAll" :clearAllDone="clearAllDone"/>
+      <Header @addTodo="addTodo"/>
+      <List :todos="todos" @updateTodo="updateTodo" @deleteTodo="deleteTodo"/>
+      <Footer :todos="todos" @updateAll="updateAll" @clearAllDone="clearAllDone"/>
     </div>
   </div>
 </template>

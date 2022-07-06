@@ -13,7 +13,7 @@
 <script>
     export default {
         name: 'Footer',
-        props:['todos', 'updateAll', 'clearAllDone'],
+        props:['todos'],
         // 通过计算属性获取数据
         computed:{
             doneCount(){
@@ -29,13 +29,13 @@
                     return this.doneCount === this.total && this.total > 0;
                 },
                 set(flag){
-                    this.updateAll(flag);
+                    this.$emit('updateAll', flag);
                 }
             }
         },
         methods:{
             clearDone(){
-                this.clearAllDone();
+                this.$emit('clearAllDone');
             }
         }
     }

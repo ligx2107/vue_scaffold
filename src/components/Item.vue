@@ -19,7 +19,7 @@
 <script>
     export default {
         name: 'Item',
-        props:['todo', 'index', 'updateTodo', 'deleteTodo'],
+        props:['todo', 'index'],
         data(){
             return {
                 isEnter: false
@@ -28,12 +28,12 @@
         methods:{
             checkOrNot(index, event){
                 // 通知父组件更新todo数据
-                this.updateTodo(index, event.target.checked);
+                this.$emit('updateTodo', index, event.target.checked);
             },
 
             deleteT(index){
                 if(confirm('确认删除吗?')){
-                    this.deleteTodo(index);
+                    this.$emit('deleteTodo', index);
                 }
             }
         }
