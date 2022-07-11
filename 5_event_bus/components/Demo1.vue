@@ -21,6 +21,10 @@
         mounted(){
             // Demo1中，为全局总线绑定sayHello事件
             this.$bus.$on('sayHello', this.sayHello);
+        },
+        beforeDestroy(){
+            // 组件销毁前，解绑全局事件总线
+            this.$bus.$off('sayHello');
         }
     }
 </script>
