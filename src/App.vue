@@ -1,15 +1,13 @@
 <template>
-    <div class="container">
-    <Search />
-    <List />
-  </div>
+    <div>
+        <Count />
+    </div>
 </template>
 
 <script>
-    import Search from './components/Search';
-    import List from './components/List';
+    import Count from './components/Count';
     export default {
         name: 'App',
-        components:{Search, List}
+        components: {Count}
     }
 </script>
