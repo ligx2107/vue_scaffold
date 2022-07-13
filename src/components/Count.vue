@@ -1,5 +1,6 @@
 <template>
     <div>
+        <!-- 从store中获取数据 -->
         <h2>当前数字为：{{$store.state.sum}}</h2>
         <select name="number" id="number" v-model.number="n">
             <option value="1">1</option>
@@ -22,6 +23,7 @@
         },
         methods: {
             increment(){
+                // 调用store所管理的actions对象中的对应处理方法
                 this.$store.dispatch('increment', this.n);
             },
             decrement(){
