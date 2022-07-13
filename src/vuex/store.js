@@ -1,7 +1,4 @@
-// 引入Vue
 import Vue from 'vue';
-
-// 引入Vuex
 import Vuex from 'vuex';
 
 // 应用Vuex, 之后在vm及所有vc上都存在$store对象
@@ -41,5 +38,4 @@ const mutations = {
 // 创建store，用于管理state对象，actions对象及mutations对象
 const store = new Vuex.Store({state, actions, mutations});
 
-// 暴露store
 export default store;
