@@ -18,7 +18,7 @@ const actions = {
     decrement(context, value){
         context.commit('DECREMENT', value);
     },
-    incrementSync(context, value){
+    incrementAsync(context, value){
         setTimeout(() => {
             context.commit('INCREMENT', value);
         }, 500);
