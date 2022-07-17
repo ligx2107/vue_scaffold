@@ -22,6 +22,9 @@
                     <div class="panel-body">
                         <!-- 默认路由组件展示区域 -->
                         <router-view></router-view>
+                        <!-- 命名路由组件展示区域, 
+                        应对一个路由配置多个组件的场景, 通过name属性指定所要展示的组件 -->
+                        <router-view name="h2"></router-view>
                     </div>
                 </div>
             </div>
