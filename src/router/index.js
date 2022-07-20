@@ -37,8 +37,33 @@ const router = new vueRouter({
                     component: Message,
                     children:[
                         {
-                            path: 'detail',
-                            component: Detail
+                            // 声明接收params参数
+                            // path: 'detail/:id/:title/:content',
+
+                            // query方式无需声明接收参数
+                            // path: 'detail',
+
+                            // 使用命名路由方式同时传递params与query参数
+                            path: 'detail/:id',
+                            component: Detail,
+                            name: 'xiangqing', // 命名路由
+
+                            // 路由的props配置
+                            /**
+                             * props: {test: 'hello'}  通过props映射自定义的静态数据
+                             * props: true  映射路由的params参数为props传递给路由组件
+                             * props(route){return {id: route.params.id, title: route.query.title, content: route.query.content}}
+                             */
+                            props(route){
+                                const {id} = route.params
+                                const {title, content} = route.query
+                                return {
+                                    id,
+                                    title,
+                                    content
+                                }
+                            }
+
                         }
                     ]
                 }
