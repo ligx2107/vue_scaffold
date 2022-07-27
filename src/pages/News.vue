@@ -8,6 +8,12 @@
 
 <script>
     export default {
-        name: 'News'
+        name: 'News',
+        mounted(){
+            console.log("News组件挂载了...")
+        },
+        beforeDestroy(){
+            console.log("News组件将要销毁...");
+        }
     }
 </script>
