@@ -38,12 +38,6 @@
                     {id: '003', title: '消息3', content: '烫头'}
                 ]
             }
-        },
-        mounted(){
-            console.log("Message组件挂载了...")
-        },
-        beforeDestroy(){
-            console.log("Message将要销毁...")
         }
     }
 </script>

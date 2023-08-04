@@ -1,11 +1,8 @@
-import Vue from 'vue';
-import App from './App';
-import router from './router'
+import Vue from 'vue'
+import Search from './Search'
+import './mocks/mock.js'
 
-Vue.config.productionTip = false;
-
-const vm = new Vue({
-    el: '#app',
-    router,
-    render: h => h(App)
+new Vue({
+    el: "#app",
+    render: h => h(Search)
 });
